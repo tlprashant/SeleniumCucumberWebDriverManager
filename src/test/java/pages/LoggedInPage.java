@@ -3,7 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import utility.BrowserDriver;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoggedInPage extends BrowserDriver {
 
@@ -14,17 +15,17 @@ public class LoggedInPage extends BrowserDriver {
 
     public static void visibility_productcateogry_formalshoes() throws InterruptedException {
         String actualproductcateogry_fs = driver.findElement(By.xpath(productcateogry_formalshoes)).getText();
-        assertEquals(actualproductcateogry_fs,"Formal Shoes");
+        assertEquals("Formal Shoes" , actualproductcateogry_fs);
 
     }
 
     public static void visibility_productcateogry_sportsshoes() throws InterruptedException {
         String actualproductcateogry_ss = driver.findElement(By.xpath(productcateogry_sportsshoes)).getText();
-        assertEquals(actualproductcateogry_ss,"Sports");
+        assertEquals("Sports" ,actualproductcateogry_ss );
     }
     public static void visibility_productcateogry_sneakershoes() throws InterruptedException {
     String actualproductcateogry_s = driver.findElement(By.xpath(productcateogry_sneakers)).getText();
-        assertEquals(actualproductcateogry_s,"Sneakers");
+        assertEquals("Sneakers" , actualproductcateogry_s);
 
 }
 }

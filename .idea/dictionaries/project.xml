@@ -2,11 +2,15 @@
   <dictionary name="project">
     <words>
       <w>actualproductcategory</w>
+      <w>actualproductcateogry</w>
       <w>formalshoes</w>
       <w>newregister</w>
       <w>productcategory</w>
+      <w>productcateogry</w>
       <w>sendkeys</w>
       <w>signin</w>
+      <w>sneakershoes</w>
+      <w>sportsshoes</w>
       <w>userregistration</w>
     </words>
   </dictionary>

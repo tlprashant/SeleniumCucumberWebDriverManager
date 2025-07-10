@@ -11,6 +11,7 @@ public class LoggedInPage {
         visibility_productcateogry_formalshoes();
         visibility_productcateogry_sportsshoes();
         visibility_productcateogry_sneakershoes();
+        System.out.println("=== STEP REACHED ===");
 
     }
     }

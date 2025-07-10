@@ -2,7 +2,13 @@ package pages;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.BrowserDriver;
+
+import java.time.Duration;
 
 public class LoginPage extends BrowserDriver {
 
@@ -27,6 +33,10 @@ public class LoginPage extends BrowserDriver {
     }
 
     public static void click_NewRegister_btn() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement registerBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("NewRegistration")));
+        System.out.println("Clicking on New Registration button...");
+        registerBtn.click();
         driver.findElement(By.id(newregister_btn_id)).click();
     }
 }

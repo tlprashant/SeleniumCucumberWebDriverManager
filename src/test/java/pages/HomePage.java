@@ -14,9 +14,7 @@ public class HomePage extends BrowserDriver {
     public static String onlineProductsPage_link_linkText = "Online Products";
 
     public static void click_hamburger_menu() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
+        driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html#");
         Thread.sleep(2000);
         driver.findElement(By.xpath(hamburger_menu_xpath)).click();
 
