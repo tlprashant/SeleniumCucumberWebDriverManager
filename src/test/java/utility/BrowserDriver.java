@@ -11,17 +11,14 @@ public class BrowserDriver {
     public static void initializeDriver() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
-
             ChromeOptions options = new ChromeOptions();
 
-            // Detect if running in Jenkins (no DISPLAY variable or CI env)
-            String ciEnv = System.getenv("JENKINS_HOME");
-            if (ciEnv != null) {
-                options.addArguments("--headless=new"); // Use headless mode in Jenkins
+            if (System.getenv("JENKINS_HOME") != null) {
+                // Running inside Jenkins
+                options.addArguments("--headless=new");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--disable-gpu");
-                options.addArguments("--window-size=1920,1080");
             }
 
             driver = new ChromeDriver(options);

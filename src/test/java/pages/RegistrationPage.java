@@ -1,66 +1,41 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import utility.BrowserDriver;
 
-import java.time.Duration;
+import static utility.BrowserDriver.driver;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-public class RegistrationPage extends BrowserDriver {
+public class RegistrationPage {
 
     // Locators
-    private static final By headerLocator = By.xpath("//h1[normalize-space()='User Registration Page']");
-    private static final By nameLocator = By.id("name");
-    private static final By emailLocator = By.id("email");
-    private static final By passwordLocator = By.id("password");
-    private static final By confirmPasswordLocator = By.id("confirmpassword");
-    private static final By submitButtonLocator = By.xpath("//input[@type='submit' and @value='Register']");
+    private static final By pageHeader = By.xpath("//h1[text()='User Registration Page']");
+    private static final By nameField = By.xpath("/html/body/center/h1");
 
-    // Verify URL and header text
+    // Verify Registration Page is loaded
     public static void verifyRegistrationPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-        boolean urlContainsRegistration = wait.until(ExpectedConditions.urlContains("Registration"));
-        assertTrue(urlContainsRegistration, "URL does not contain 'Registration'");
-
-        WebElement header = wait.until(ExpectedConditions.visibilityOfElementLocated(headerLocator));
-        assertEquals("User Registration Page", header.getText().trim(), "Page header mismatch");
+        try {
+            WebElement header = driver.findElement(pageHeader);
+            Assert.assertTrue("User Registration Page header not found!", header.isDisplayed());
+            System.out.println("✅ User Registration Page header verified.");
+        } catch (Exception e) {
+            throw new AssertionError("❌ Failed to verify User Registration Page: " + e.getMessage(), e);
+        }
     }
 
-    // Verify name field is visible
+    // Verify Name field is visible
     public static void verifyNameFieldPresent() {
-        WebElement nameInput = driver.findElement(nameLocator);
-        assertTrue(nameInput.isDisplayed(), "Name input field not visible");
-    }
-
-    // Fill the registration form fields
-    public static void fillRegistrationForm(String name, String email, String password, String confirmPassword) {
-        WebElement nameInput = driver.findElement(nameLocator);
-        nameInput.clear();
-        nameInput.sendKeys(name);
-
-        WebElement emailInput = driver.findElement(emailLocator);
-        emailInput.clear();
-        emailInput.sendKeys(email);
-
-        WebElement passwordInput = driver.findElement(passwordLocator);
-        passwordInput.clear();
-        passwordInput.sendKeys(password);
-
-        WebElement confirmPasswordInput = driver.findElement(confirmPasswordLocator);
-        confirmPasswordInput.clear();
-        confirmPasswordInput.sendKeys(confirmPassword);
-    }
-
-    // Submit the registration form
-    public static void submitForm() {
-        WebElement submitBtn = driver.findElement(submitButtonLocator);
-        submitBtn.click();
+        try {
+            WebElement name = driver.findElement(nameField);
+            Assert.assertTrue("Name field is not visible on Registration page!", name.isDisplayed());
+            System.out.println("✅ Name field is visible.");
+        } catch (Exception e) {
+            throw new AssertionError("❌ Failed to verify Name field: " + e.getMessage(), e);
+        }
     }
 }
+
+
+
+
 

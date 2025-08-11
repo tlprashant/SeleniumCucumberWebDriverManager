@@ -33,10 +33,26 @@ public class LoginPage extends BrowserDriver {
     }
 
     public static void click_NewRegister_btn() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        WebElement registerBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("NewRegistration")));
-        System.out.println("Clicking on New Registration button...");
-        registerBtn.click();
-    //    driver.findElement(By.id(newregister_btn_id)).click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(05));
+
+            // Wait for presence first
+            WebElement newRegisterButton = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.id("NewRegistration"))
+            );
+
+            // Then wait for visibility
+            wait.until(ExpectedConditions.visibilityOf(newRegisterButton));
+
+            // Then wait for clickability
+            wait.until(ExpectedConditions.elementToBeClickable(newRegisterButton));
+
+            newRegisterButton.click();
+            System.out.println("✅ Clicked on 'New User? Register Here!' button.");
+
+        } catch (Exception e) {
+            throw new AssertionError("❌ Could not click on New Registration button: " + e.getMessage(), e);
+        }
     }
+
 }

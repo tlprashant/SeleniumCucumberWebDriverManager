@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import utility.BrowserDriver;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoggedInPage extends BrowserDriver {
 
