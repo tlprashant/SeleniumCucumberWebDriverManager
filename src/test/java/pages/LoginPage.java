@@ -33,10 +33,10 @@ public class LoginPage extends BrowserDriver {
     }
 
     public static void click_NewRegister_btn() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement registerBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("NewRegistration")));
         System.out.println("Clicking on New Registration button...");
         registerBtn.click();
-        driver.findElement(By.id(newregister_btn_id)).click();
+    //    driver.findElement(By.id(newregister_btn_id)).click();
     }
 }
