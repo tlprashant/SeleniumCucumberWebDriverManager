@@ -86,15 +86,22 @@
                 </configuration>
             </plugin>
 
-            <!-- Surefire plugin to run JUnit 4 Runner -->
+            <!-- Surefire plugin configured for JUnit 4 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
+                    <useModulePath>false</useModulePath>
                     <includes>
-                        <include>**/JUnit4TestRunner.java</include>
+                        <include>**/JUnit4TestRunnerTest.java</include>
                     </includes>
+                    <properties>
+                        <property>
+                            <name>junit4</name>
+                            <value>true</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>
