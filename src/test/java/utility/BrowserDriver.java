@@ -13,13 +13,13 @@ public class BrowserDriver {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
 
-            if (System.getenv("JENKINS_HOME") != null) {
+       //     if (System.getenv("JENKINS_HOME") != null) {
                 // Running inside Jenkins
-                options.addArguments("--headless=new");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--disable-gpu");
-            }
+       //         options.addArguments("--headless=new");
+       //         options.addArguments("--no-sandbox");
+       //         options.addArguments("--disable-dev-shm-usage");
+       //         options.addArguments("--disable-gpu");
+       //     }
 
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
